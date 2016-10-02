@@ -35,13 +35,13 @@
     Example specifics
 ------------------------------------------------------------------- */
     /* Sortable items */
-    
+
     .sortable-block {
         list-style: none;
         margin: 0;
         min-height: 30px;
     }
-    
+
     .sortable-list,
     .draggable-item {
         list-style: none;
@@ -49,46 +49,46 @@
         min-height: 30px;
         padding: 0px;
     }
-    
+
     #containment {
         background-color: #FFA;
         height: 230px;
     }
     /* Item placeholder (visual helper) */
-    
+
     .placeholder {
         background-color: #BFB;
         border: 1px dashed #666;
         height: 58px;
         margin-bottom: 5px;
     }
-    
+
     #bb-guide-column div {
         border-color: #F9F9F9;
         border-right-style: solid;
         border-width: 5px;
         min-height: 200px;
     }
-    
+
     .bb-guide:nth-of-type(even) {
         background-color: #EAEAEA;
     }
-    
+
     .bb-guide:nth-of-type(odd) {
         background-color: #F1F1F1;
     }
-    
+
     .colum-option:hover {
         position: relative;
         box-shadow: inset 0 0 1px #ccc;
     }
-    
+
     .ui-sortable-helper {
         width: 100% !important;
         height: 150px !important;
         overflow: hidden;
     }
-    
+
     .ui-sortable-placeholder {
         height: 100px;
         border: 2px dashed #FF0000;
@@ -99,21 +99,21 @@
         padding: 40px;
     }
     */
-    
+
     .ui-state-hover div {
         opacity: 0.3;
     }
-    
+
     .sortable-item {
         position: relative;
     }
-    
+
     .sortable-item.ui-sortable-helper {
         border: 2px dashed #FF0000;
         background-color: #ccc;
         padding: 0 30px;
     }
-    
+
     .sortable-item:before {
         content: "";
         border-left: 2px dashed #ff0000;
@@ -124,17 +124,17 @@
         left: 0px;
         top: 0px;
     }
-    
+
     .ui-droppable-active {
         background-color: #FF0000;
         border: 2px dashed #cccccc;
     }
-    
+
     .ui-droppable-hover {
         background-color: #000000;
         border: 2px dashed #ff0000;
     }
-    
+
     .widget-box:hover {
         box-shadow: inset 0 0 2px #559ef6;
     }
@@ -155,10 +155,10 @@
     <div class="style-code">
         <style>
             /* rule custome css */
-            
+
         </style>
     </div>
-    <?php 
+    <?php
         include "builder_modal_theme.php";
         include "builder_modal_fonticons.php";
         include "builder_modal_blockoption.php";
@@ -166,6 +166,9 @@
         include "builder_modal_colum.php";
         include "builder_modal_pageoption.php";
         include "builder_modal_widget.php";
+        include "builder_modal_widget-countdown.php";
+        include "builder_modal_widget-gallery.php";
+        include "builder_modal_widget-instagram.php";
     ?>
 
     <div class="builder-nav">
@@ -216,23 +219,23 @@
     </div>
     <div class="builder-blocks scroll">
         <!-- widget -->
-                <?php 
+                <?php
                 //print_code($widget_items);
                 foreach($widget_items as $w){
                 ?>
                 <div class="widget_item--component" data-type="intro" data-id="<?php echo $w->widget_id; ?>" data-toggle="tooltip" data-placement="top" title="" data-original-title="<?php echo $w->widget_title; ?>"><img src="<?php echo base_url().'/media/'.$w->widget_thumb;?>"></div>
-                <?php 
+                <?php
                 }
                 ?>
-                
-                <?php 
+
+                <?php
                 foreach($block_section as $bs){
                 ?>
                 <div class="blocks_item--section" data-type="intro" data-id="<?php echo $bs->block_id;?>"><img src="<?php echo base_url(); ?>/media/<?php echo $bs->block_thumb; ?>"></div>
                 <?php
                 }
                 ?>
-            
+
     </div>
     <div class="builder-widgets">
 
@@ -684,7 +687,7 @@
                                         <div class="sortable-item">
                                             <div class="widget-box button-box text-center">
                                                 <a href="#" class="btn btn-block btn-small btn-success"><span class="fa fa-map-marker"></span>&nbsp;&nbsp; View on  Google Map</a>
-                                           
+
                                                 <a href="#" class="btn btn-block btn-small btn-success"><span class="fa fa-calendar"></span>&nbsp;&nbsp; Add to  Calendar</a>
                                             </div>
                                         </div>
@@ -733,7 +736,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                       
+
                                     </div>
                                 </div>
                                 <div class="col-md-2 col-sm-12 col-xs-12 colum-option"   data-md="2" data-sm="12" data-xs="12">
@@ -805,13 +808,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-md-4 col-sm-12 col-xs-12 colum-option" data-md="4" data-sm="12" data-xs="12">
                                     <div class="sortable-list">
                                         <div class="sortable-item">
                                             <div class="widget-box text-right" data-widget="text-01" data-widget-filter="heading-lead">
                                                 <div class="row">
-                                                    
+
                                                     <div class="col-xs-10">
                                                         <p><strong>DATE</strong></p>
                                                         <p class="">Saturday, 15 Januari 2018<br>09.00 - 11.00 WIB</p>
@@ -825,7 +828,7 @@
                                         <div class="sortable-item">
                                             <div class="widget-box text-right" data-widget="text-01" data-widget-filter="heading-lead">
                                                 <div class="row">
-                                                    
+
                                                     <div class="col-xs-10">
                                                         <p><strong>LOCATION</strong></p>
                                                         <p class=""><strong>Masjid Al Azhar</strong> <br>
@@ -841,7 +844,7 @@
                                         <div class="sortable-item">
                                             <div class="widget-box text-right" data-widget="text-01" data-widget-filter="heading-lead">
                                                 <div class="row">
-                                                    
+
                                                     <div class="col-xs-10">
                                                         <p><strong>ATTIRE</strong></p>
                                                         <p class="">Indonesia formal<br><small>- Please arrive 30minute before</small></p>
@@ -864,7 +867,7 @@
                                         <div class="sortable-item">
                                             <div class="widget-box button-box text-center">
                                                 <a href="#" class="btn btn-block btn-small btn-success"><span class="fa fa-map-marker"></span>&nbsp;&nbsp; View on  Google Map</a>
-                                           
+
                                                 <a href="#" class="btn btn-block btn-small btn-success"><span class="fa fa-calendar"></span>&nbsp;&nbsp; Add to  Calendar</a>
                                             </div>
                                         </div>
@@ -933,7 +936,7 @@
                                                 <div class="widget-box_space"></div>
                                             </div>
                                         </div>
-                                       
+
                                     </div>
                                 </div>
                             </div>
@@ -990,7 +993,7 @@
                                                 <p><a href="" style="color:#FFFFFF;">www.invitwo.com</a></p>
                                             </div>
                                         </div>
-                                       
+
                                     </div>
                                 </div>
                             </div>
@@ -1023,7 +1026,7 @@
 
 
     <div id="ls_blocks-preloaded-rows">
-       <?php 
+       <?php
              /**
                 *  include block / section
                 */
@@ -1048,7 +1051,7 @@
     <script src="<?php echo base_url();?>/beta/js/plugins/color/spectrum.js"></script>
     <script src="<?php echo base_url();?>/beta/js/plugins/jquery.nestable.js"></script>
     <script src="<?php echo base_url();?>/beta/js/plugins/fancybox/jquery.fancybox.js" type="text/javascript"></script>
-    
+
     <script src="<?php echo base_url();?>/beta/js/plugins/countdown/jquery.countdown.min.js" type="text/javascript"></script>
 
     <script src="<?php echo base_url();?>/beta/js/plugins/imagegrid/images-grid.js"></script>

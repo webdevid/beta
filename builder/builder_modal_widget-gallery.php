@@ -1,4 +1,4 @@
-<div class="modal fade modal-lg" id="ModalWidgetCountdown" tabindex="-1" role="dialog" aria-labelledby="ModalWidget">
+<div class="modal fade modal-lg" id="ModalWidgetGallery" tabindex="-1" role="dialog" aria-labelledby="ModalWidget">
 
     <div class="modal-dialog modal-lg" role="document">
 
