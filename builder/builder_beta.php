@@ -458,7 +458,7 @@
                                         </div>
                                         <div class="sortable-item">
                                             <div class="countdown-box p-t-20  p-b-30 text-center">
-                                                <div id="clock" class="font-heading countdown cd_style_01"></div>
+                                                <div id="clock" class="font-heading countdown cd_style_01" data-countdown="2016/11/12"></div>
                                                 <style type="text/css">
                                                     .cd_style_01{
                                                         font-size: 60px;
@@ -616,7 +616,7 @@
                                     <div class="sortable-list">
                                         <div class="sortable-item">
                                             <div class="collage-box">
-                                                <div class="collage" id="gallery1" data-images="https://unsplash.it/660/440?image=875,https://unsplash.it/660/990?image=874,https://unsplash.it/660/440?image=872,https://unsplash.it/750/500?image=868,https://unsplash.it/660/990?image=839,https://unsplash.it/660/455?image=838,https://unsplash.it/660/440?image=875,https://unsplash.it/660/990?image=874">
+                                                <div class="collage gallery_album" id="gallery1"  data-widget-type="gallery" data-images="https://unsplash.it/660/440?image=875,https://unsplash.it/660/990?image=874,https://unsplash.it/660/440?image=872,https://unsplash.it/750/500?image=868,https://unsplash.it/660/990?image=839,https://unsplash.it/660/455?image=838,https://unsplash.it/660/440?image=875,https://unsplash.it/660/990?image=874">
                                                 </div>
                                             </div>
                                         </div>
@@ -1058,6 +1058,88 @@
     <link rel="stylesheet" href="<?php echo base_url();?>/beta/js/plugins/imagegrid/images-grid.css">
 
     <script src="<?php echo base_url();?>/beta/js/source.js" type="text/javascript"></script>
+
+    <script>
+
+        /*
+        * countdown ====================================
+        */
+
+        $('.countdown').click(function(){
+            //console.log('start coundown');
+            $('#ModalWidgetCountdown').modal('show');
+            $(this).addClass('edit-widget');
+            $('#countdown_time').val($(this).data('countdown'));
+        });
+
+        $('#updateWidgetCountdown').click(function(){
+            var newCountdown = $('#countdown_time').val();
+            console.log(newCountdown);
+            $('.countdown.edit-widget').html(' ');
+            $('.countdown.edit-widget').attr('data-countdown',newCountdown);
+            $('.countdown.edit-widget').countdown(newCountdown, function(event){
+	          	$(this).html(event.strftime('<span>%D<span class="small-cd">Days</span></span> <span>%H<span class="small-cd">Hours</span></span> <span>%M<span class="small-cd">Min</span></span> <span>%S<span class="small-cd">Sec</span></span>'));
+	        });
+            $('.countdown').removeClass('edit-widget');
+
+        });
+
+
+        /*
+        * instagram ====================================
+        */
+
+        $('.instalive').click(function(){
+            console.log('instalive run');
+            $(this).addClass('edit-widget');
+            $('#ModalWidgetInstagram').modal('show');
+            var instakey = $(this).data('instalive');
+            $('#instagramkey').val(instakey);
+        });
+        $('#updateWidgetInstagram').click(function(){
+
+            var instakey = $('#instagramkey').val();
+            $('.instalive.edit-widget').attr('data-instalive',instakey);
+            tag = instakey;
+
+            $('.instalive.edit-widget').html(' ');
+
+            $.ajax({
+                url: 'http://themesfoundry.com/my/api/instagram/process.php',
+                data: 'tag='+tag,
+                dataType: 'json',
+                type: 'GET',
+                success: function(response){
+                    console.log('success');
+                    if(response.status == 'Success') {
+                        $('.loader').html('');
+                        $('.instalive.edit-widget').html(' ');
+                        console.log(response.imageset[0].thumbnail);
+                        for(var i=0; i<response.imageset.length; i++) {
+                            var url  = response.imageset[i].thumbnail;
+                            if(url != false)
+                                $('.instalive.edit-widget').append('<img class="instalive-invitwo" src="'+url+'">');
+                        }
+                    }
+                    $('.instalive').removeClass('edit-widget');
+                },
+                error: function(e){
+                    $('.loader').html('');
+                    $('.instalive.edit-widget').append('<h3>Error processing your request!</h3>');
+
+                    $('.instalive').removeClass('edit-widget');
+                }
+            });
+
+            $('#ModalWidgetInstagram').modal('hide');
+
+        });
+
+        /*
+        * gallery
+        */
+
+    </script>
     </div>
     <?php /**/ ?>
 </body>
